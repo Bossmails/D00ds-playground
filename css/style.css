@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* ---------- HOME ---------- */
+
+.home {
+  background: url("../images/bg-home.jpg") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 3rem;
+  animation: fadeUp 1.2s ease;
+}
+
+.home p {
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+.btn {
+  padding: 18px 45px;
+  margin: 10px;
+  font-size: 1.1rem;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255,255,255,0.6);
+}
+
+.quiz-btn { background: #ffcc00; }
+.meme-btn { background: #00e0ff; }
+
+footer {
+  position: absolute;
+  bottom: 15px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* ---------- QUIZ ---------- */
+
+.quiz {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.6s ease;
+}
+
+.card {
+  background: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 85%;
+  max-width: 400px;
+}
+
+.card button {
+  margin: 10px;
+}
+
+/* ---------- MEME ---------- */
+
+.meme {
+  background: #111;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.meme-box {
+  position: relative;
+  width: 300px;
+  margin: auto;
+}
+
+.meme-box img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.meme-text {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px black;
+}
+
+/* ---------- ANIMATION ---------- */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
