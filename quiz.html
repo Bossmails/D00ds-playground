@@ -2,97 +2,16 @@
 <html>
 <head>
   <title>D00ds Quiz</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      font-family: Arial;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      transition: background 0.6s ease;
-    }
-
-    .card {
-      background: rgba(0,0,0,0.6);
-      padding: 40px;
-      border-radius: 20px;
-      text-align: center;
-      width: 80%;
-      max-width: 400px;
-    }
-
-    button {
-      padding: 15px 30px;
-      margin: 10px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="quiz">
   <div class="card">
     <h2 id="question"></h2>
-    <button onclick="answer()">Yes</button>
-    <button onclick="answer()">No</button>
+    <button class="btn quiz-btn" onclick="answer()">Yes</button>
+    <button class="btn meme-btn" onclick="answer()">No</button>
   </div>
 
-<script>
-  const questions = [
-    "Do you move first?",
-    "Do you trust vibes over logic?",
-    "Do you like chaos?",
-    "Are you community-driven?",
-    "Do you love memes?"
-  ];
-
-  const backgrounds = [
-    "images/result-1.jpg",
-    "images/result-2.jpg",
-    "images/result-3.jpg"
-  ];
-
-  let index = 0;
-
-  function loadQuestion() {
-    document.body.style.backgroundImage =
-      `url(${backgrounds[index % backgrounds.length]})`;
-    document.getElementById("question").innerText = questions[index];
-  }
-
-  function answer() {
-    index++;
-    if (index < questions.length) {
-      loadQuestion();
-    } else {
-      showResult();
-    }
-  }
-
-  function showResult() {
-    const img = backgrounds[Math.floor(Math.random()*3)];
-    document.body.innerHTML = `
-      <div class="card">
-        <h2>Your D00d Personality</h2>
-        <img src="${img}" style="width:100%; border-radius:15px;">
-        <br><br>
-        <button onclick="location.href='index.html'">Back Home</button>
-      </div>
-    `;
-  }
-
-  loadQuestion();
-</script>
+  <script src="js/quiz.js"></script>
 </body>
 </html>
