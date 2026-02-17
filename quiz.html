@@ -1,106 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>D00d Quiz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D00ds Quiz</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      font-family: Arial;
+      background-size: cover;
+      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      color: white;
+      transition: background 0.6s ease;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.6);
+      padding: 40px;
+      border-radius: 20px;
       text-align: center;
-      flex-direction: column;
-      margin: 0;
-      padding: 20px;
+      width: 80%;
+      max-width: 400px;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 15px 30px;
       margin: 10px;
-      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
       cursor: pointer;
-      border-radius: 10px;
+      transition: transform 0.2s;
     }
 
-    .balloon {
-      position: fixed;
-      bottom: -100px;
-      font-size: 30px;
-      animation: float 4s linear infinite;
-    }
-
-    @keyframes float {
-      to { transform: translateY(-120vh); }
+    button:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
-<body>
 
-<div class="quiz-container">
-  <h2 id="question">Question will appear here</h2>
-  <div class="buttons">
-    <button onclick="answer(true)">Yes</button>
-    <button onclick="answer(false)">No</button>
+<body>
+  <div class="card">
+    <h2 id="question"></h2>
+    <button onclick="answer()">Yes</button>
+    <button onclick="answer()">No</button>
   </div>
-</div>
 
 <script>
-const questions = [
-  "Do you enjoy chaos?",
-  "Do you overthink memes?",
-  "Do you like being different?",
-  "Do you scroll X at 3am?",
-  "Would you survive as a D00d?"
-];
+  const questions = [
+    "Do you move first?",
+    "Do you trust vibes over logic?",
+    "Do you like chaos?",
+    "Are you community-driven?",
+    "Do you love memes?"
+  ];
 
-let index = 0;
-let score = 0;
+  const backgrounds = [
+    "images/result-1.jpg",
+    "images/result-2.jpg",
+    "images/result-3.jpg"
+  ];
 
-const qEl = document.getElementById("question");
-qEl.innerText = questions[index];
+  let index = 0;
 
-function answer(yes) {
-  if (yes) score++;
-  index++;
-
-  if (index < questions.length) {
-    qEl.innerText = questions[index];
-  } else {
-    showResult();
-  }
-}
-
-function showResult() {
-  document.body.innerHTML = "";
-
-  // Pick image based on score
-  let img = document.createElement("img");
-  if (score <= 1) img.src = "images/result-1.jpg";
-  else if (score <= 3) img.src = "images/result-2.jpg";
-  else img.src = "images/result-3.jpg";
-
-  img.style.width = "90%";
-  img.style.maxWidth = "400px";
-  document.body.appendChild(img);
-
-  // Balloons
-  for (let i = 0; i < 15; i++) {
-    let b = document.createElement("div");
-    b.className = "balloon";
-    b.innerText = "🎈";
-    b.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(b);
+  function loadQuestion() {
+    document.body.style.backgroundImage =
+      `url(${backgrounds[index % backgrounds.length]})`;
+    document.getElementById("question").innerText = questions[index];
   }
 
-  // Back home button
-  let btn = document.createElement("button");
-  btn.innerText = "Back Home";
-  btn.style.marginTop = "20px";
-  btn.onclick = () => location.href = "index.html";
-  document.body.appendChild(btn);
-}
+  function answer() {
+    index++;
+    if (index < questions.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    const img = backgrounds[Math.floor(Math.random()*3)];
+    document.body.innerHTML = `
+      <div class="card">
+        <h2>Your D00d Personality</h2>
+        <img src="${img}" style="width:100%; border-radius:15px;">
+        <br><br>
+        <button onclick="location.href='index.html'">Back Home</button>
+      </div>
+    `;
+  }
+
+  loadQuestion();
 </script>
 </body>
 </html>
