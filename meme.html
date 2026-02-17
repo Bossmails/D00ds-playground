@@ -2,45 +2,10 @@
 <html>
 <head>
   <title>D00ds Meme Generator</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    select, input {
-      padding: 10px;
-      margin: 10px;
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .meme-box {
-      position: relative;
-      margin: auto;
-      width: 300px;
-    }
-
-    .meme-box img {
-      width: 100%;
-      border-radius: 15px;
-    }
-
-    .text {
-      position: absolute;
-      width: 100%;
-      top: 10px;
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px black;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="meme">
   <h1>Create a D00d Meme</h1>
 
   <select id="image" onchange="updateMeme()">
@@ -58,21 +23,12 @@
 
   <div class="meme-box">
     <img id="memeImg" src="images/meme-1.jpg">
-    <div class="text" id="memeText"></div>
+    <div class="meme-text" id="memeText"></div>
   </div>
 
-  <br>
-  <button onclick="location.href='index.html'">Back Home</button>
+  <br><br>
+  <button class="btn quiz-btn" onclick="location.href='index.html'">Back Home</button>
 
-<script>
-  function updateMeme() {
-    const img = document.getElementById("image").value;
-    document.getElementById("memeImg").src = "images/" + img;
-  }
-
-  function updateText(text) {
-    document.getElementById("memeText").innerText = text;
-  }
-</script>
+  <script src="js/meme.js"></script>
 </body>
 </html>
