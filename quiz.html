@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>D00d Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .balloon {
+      position: fixed;
+      bottom: -100px;
+      font-size: 30px;
+      animation: float 4s linear infinite;
+    }
+
+    @keyframes float {
+      to { transform: translateY(-120vh); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h2 id="question">Question will appear here</h2>
+  <div class="buttons">
+    <button onclick="answer(true)">Yes</button>
+    <button onclick="answer(false)">No</button>
+  </div>
+</div>
+
+<script>
+const questions = [
+  "Do you enjoy chaos?",
+  "Do you overthink memes?",
+  "Do you like being different?",
+  "Do you scroll X at 3am?",
+  "Would you survive as a D00d?"
+];
+
+let index = 0;
+let score = 0;
+
+const qEl = document.getElementById("question");
+qEl.innerText = questions[index];
+
+function answer(yes) {
+  if (yes) score++;
+  index++;
+
+  if (index < questions.length) {
+    qEl.innerText = questions[index];
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.body.innerHTML = "";
+
+  // Pick image based on score
+  let img = document.createElement("img");
+  if (score <= 1) img.src = "images/result-1.jpg";
+  else if (score <= 3) img.src = "images/result-2.jpg";
+  else img.src = "images/result-3.jpg";
+
+  img.style.width = "90%";
+  img.style.maxWidth = "400px";
+  document.body.appendChild(img);
+
+  // Balloons
+  for (let i = 0; i < 15; i++) {
+    let b = document.createElement("div");
+    b.className = "balloon";
+    b.innerText = "🎈";
+    b.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(b);
+  }
+
+  // Back home button
+  let btn = document.createElement("button");
+  btn.innerText = "Back Home";
+  btn.style.marginTop = "20px";
+  btn.onclick = () => location.href = "index.html";
+  document.body.appendChild(btn);
+}
+</script>
+</body>
+</html>
