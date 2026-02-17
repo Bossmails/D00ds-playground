@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meme Generator</title>
-<link rel="stylesheet" href="style.css">
+  <title>D00ds Meme Generator</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="page">
 
-<h1 class="home-title">Meme Generator</h1>
+<body class="meme">
+  <h1>Create a D00d Meme</h1>
 
-<div class="meme-container">
-  <img id="memeImage" src="images/meme-1.jpg">
-  <div class="meme-text top" id="topText"></div>
-  <div class="meme-text bottom" id="bottomText"></div>
-</div>
-
-<div class="meme-controls">
-  <select id="memeSelect" onchange="changeMeme(this.value)">
-    <option value="images/meme-1.jpg">Meme 1</option>
-    <option value="images/meme-2.jpg">Meme 2</option>
-    <option value="images/meme-3.jpg">Meme 3</option>
-    <option value="images/meme-4.jpg">Meme 4</option>
-    <option value="images/meme-5.jpg">Meme 5</option>
-    <option value="images/meme-6.jpg">Meme 6</option>
-    <option value="images/meme-7.jpg">Meme 7</option>
-    <option value="images/meme-8.jpg">Meme 8</option>
+  <select id="image" onchange="updateMeme()">
+    <option value="meme-1.jpg">Meme 1</option>
+    <option value="meme-2.jpg">Meme 2</option>
+    <option value="meme-3.jpg">Meme 3</option>
+    <option value="meme-4.jpg">Meme 4</option>
+    <option value="meme-5.jpg">Meme 5</option>
+    <option value="meme-6.jpg">Meme 6</option>
+    <option value="meme-7.jpg">Meme 7</option>
+    <option value="meme-8.jpg">Meme 8</option>
   </select>
-  <input placeholder="Top text" oninput="topText.innerText=this.value">
-  <input placeholder="Bottom text" oninput="bottomText.innerText=this.value">
-</div>
 
-<script src="meme.js"></script>
+  <input type="text" placeholder="Type meme text" oninput="updateText(this.value)">
+
+  <div class="meme-box">
+    <img id="memeImg" src="images/meme-1.jpg">
+    <div class="meme-text" id="memeText"></div>
+  </div>
+
+  <br><br>
+  <button class="btn quiz-btn" onclick="location.href='index.html'">Back Home</button>
+
+  <script src="js/meme.js"></script>
 </body>
 </html>
