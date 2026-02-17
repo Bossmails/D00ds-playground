@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>D00ds Quiz</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="page motion-bg" id="quizBody">
 
-<body class="quiz">
-  <div class="card">
-    <h2 id="question"></h2>
-    <button class="btn quiz-btn" onclick="answer()">Yes</button>
-    <button class="btn meme-btn" onclick="answer()">No</button>
-  </div>
+<div class="quiz-card" id="quizCard">
+    <h2 id="question">Question will appear here</h2>
+    <div class="quiz-buttons">
+        <button onclick="answer('yes')">Yes</button>
+        <button onclick="answer('no')">No</button>
+    </div>
+</div>
 
-  <script src="js/quiz.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
