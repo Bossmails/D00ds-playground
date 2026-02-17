@@ -2,40 +2,75 @@
 <html>
 <head>
   <title>D00ds Playground</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("images/bg-home.jpg") center/cover no-repeat;
       height: 100vh;
-      background-image: url("images/bg-home.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      font-family: Arial, sans-serif;
       color: white;
       text-align: center;
     }
-    button {
-      padding: 15px 25px;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    p {
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 18px 40px;
       margin: 10px;
-      font-size: 18px;
+      font-size: 1.1rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 40px;
       cursor: pointer;
-      background-color: rgba(0,0,0,0.6);
-      color: white;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    .quiz { background: #ffcc00; }
+    .meme { background: #00e0ff; }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
+
 <body>
   <h1>Welcome to D00ds Playground</h1>
-  <button onclick="location.href='quiz.html'">Option A: Find My D00d</button>
-  <button onclick="location.href='meme.html'">Option B: Make a Meme</button>
+  <p>Discover your vibe or create a meme ⚡</p>
+
+  <button class="btn quiz" onclick="location.href='quiz.html'">
+    Personality Quiz
+  </button>
+
+  <button class="btn meme" onclick="location.href='meme.html'">
+    Meme Generator
+  </button>
+
+  <footer>made by @bossx_nft for the D00ds community</footer>
 </body>
 </html>
