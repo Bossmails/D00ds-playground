@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>D00ds Playground</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D00ds Playground</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="page motion-bg" style="background-image:url('images/bg-home.jpg')">
 
-<body class="home">
-  <h1>Welcome to D00ds Playground</h1>
-  <p>Discover your vibe or create a meme</p>
+<div class="home-container">
+    <h1 class="home-title">Welcome to D00ds Playground</h1>
+    
+    <div class="buttons">
+        <button onclick="location.href='quiz.html'">Personality Quiz</button>
+        <button onclick="location.href='meme.html'">Meme Generator</button>
+    </div>
 
-  <button class="btn quiz-btn" onclick="location.href='quiz.html'">
-    Personality Quiz
-  </button>
+    <p class="footer-text">Made by @bossx_nft for the D00ds community</p>
+</div>
 
-  <button class="btn meme-btn" onclick="location.href='meme.html'">
-    Meme Generator
-  </button>
+<audio id="bgMusic" autoplay loop>
+  <source src="sounds/bg-music.mp3" type="audio/mpeg">
+</audio>
 
-  <footer>made by @bossx_nft for the D00ds community</footer>
+<script src="script.js"></script>
 </body>
 </html>
