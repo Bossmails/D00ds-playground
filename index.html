@@ -2,72 +2,18 @@
 <html>
 <head>
   <title>D00ds Playground</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url("images/bg-home.jpg") center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      animation: fadeIn 1.5s ease;
-    }
-
-    p {
-      opacity: 0.9;
-      margin-bottom: 40px;
-    }
-
-    .btn {
-      padding: 18px 40px;
-      margin: 10px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(255,255,255,0.6);
-    }
-
-    .quiz { background: #ffcc00; }
-    .meme { background: #00e0ff; }
-
-    footer {
-      position: absolute;
-      bottom: 15px;
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="home">
   <h1>Welcome to D00ds Playground</h1>
-  <p>Discover your vibe or create a meme ⚡</p>
+  <p>Discover your vibe or create a meme</p>
 
-  <button class="btn quiz" onclick="location.href='quiz.html'">
+  <button class="btn quiz-btn" onclick="location.href='quiz.html'">
     Personality Quiz
   </button>
 
-  <button class="btn meme" onclick="location.href='meme.html'">
+  <button class="btn meme-btn" onclick="location.href='meme.html'">
     Meme Generator
   </button>
 
